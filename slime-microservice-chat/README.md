@@ -8,6 +8,8 @@
  * Vert.x
  * Chat Microservices
  * Message Queue
+ * 10,000 peoples in same chat room.
+ * Distributed message server
 
 ## Building
 
@@ -22,3 +24,5 @@ To build the code:
     java -jar target/slime-sockjs-0.0.1-SNAPSHOT-fat.jar 
 
 And connect your browser http://localhost:8080/
+
+## Comming Soon other examples
