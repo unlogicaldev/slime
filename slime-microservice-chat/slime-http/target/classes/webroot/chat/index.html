@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Chat System</title>
+    
+    <link rel="icon" href="/chat/assets/img/favicon.png" type="image/x-icon" />
+    
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="/chat/assets/css/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body style="font-family:Verdana">
+<div>
+    <div class="loginDiv" style="margin-top: 20px;">
+        <label>What is your name?</label><input type="text" id="txtName" />
+        <button id="btnJoin">Join</button>
+        <p id="response"></p>
+    </div>
+</div>
+<div class="container" style="display: none;">
+<div class="row " style="padding-top:40px;">
+    <h3 class="text-center" >Chat System</h3>
+    <br /><br />
+    
+    <div class="col-md-8">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                RECENT CHAT HISTORY
+            </div>
+            <div class="panel-body">
+				<ul class="media-list" id="lstMsg">
+                      <li class="media"  id="msgModel">
+                          <div class="media-body">
+
+                              <div class="media">
+                                  <a class="pull-left" href="#">
+                                      <img class="media-object img-circle " style="max-height:40px;" src="/chat/assets/img/user.png" />
+                                  </a>
+                                  <div class="media-body" >
+										<span class="lblMsg">Message</span>
+                                    	<br />
+                                     	<small class="text-muted lblUser">Alex Deo</small>
+                                      	<hr />
+                                  </div>
+                              </div>
+
+                          </div>
+                      </li>
+                  </ul>
+            </div>
+            <div class="panel-footer">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter Message" id="txtMessage"/>
+                    <span class="input-group-btn">
+                        <button class="btn btn-info" type="button" id="btnSend">SEND</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+               ONLINE USERS
+            </div>
+            <div class="panel-body">
+                <ul class="media-list" id="lstUsers">
+                    <li class="media" id="userModel">
+                        <div class="media-body">
+
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" style="max-height:40px;" src="/chat/assets/img/user.png" />
+                                </a>
+                                <div class="media-body" >
+                                   <h5 class="lblUser">Alex Deo</h5>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+  
+                  </ul>
+                </div>
+            </div>
+        
+    </div>
+</div>
+</div>
+</body>
+<script src="/chat/assets/js/jquery-1.12.3.min.js"></script>
+<script src="/chat/assets/js/sockjs-1.1.0.min.js"></script>
+<script src="/chat/assets/js/sprintf.min.js"></script>
+<script src="/chat/assets/js/vertxbus.js"></script>
+<script src="/chat/assets/js/chat.js"></script>
+</html>
