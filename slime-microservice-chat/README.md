@@ -26,3 +26,8 @@ To build the code:
 And connect your browser http://localhost:8080/
 
 ## Comming Soon other examples
+
+
+## Reference Project
+ - https://github.com/sayseakleng/vertx-eventbus-chat
+ - https://github.com/cescoffier/vertx-microservices-workshop
