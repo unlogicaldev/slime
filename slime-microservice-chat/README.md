@@ -1,8 +1,5 @@
 # slime microservice chat example
 
-## Teasing
-
-
 ## Content
 
  * Vert.x
