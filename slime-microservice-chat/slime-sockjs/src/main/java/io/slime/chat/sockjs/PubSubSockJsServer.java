@@ -7,11 +7,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
-import io.slime.chat.common.MicroServiceVerticle;
 import io.slime.chat.common.util.VertxHolder;
 import io.slime.chat.sockjs.eventbridge.EventBridgeChain;
 import io.slime.chat.sockjs.eventbridge.EventBridgeChainResponse;
 import io.slime.chat.sockjs.spring.SpringConfiguration;
+import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServer;
 import io.vertx.ext.web.Router;
@@ -21,7 +21,7 @@ import io.vertx.ext.web.handler.sockjs.PermittedOptions;
 import io.vertx.ext.web.handler.sockjs.SockJSHandler;
 
 @Component
-public class PubSubSockJsServer extends MicroServiceVerticle {
+public class PubSubSockJsServer extends AbstractVerticle {
 	private static final Logger logger = LoggerFactory.getLogger(PubSubSockJsServer.class);
 	private int serverPort = 8383;
 
@@ -42,8 +42,7 @@ public class PubSubSockJsServer extends MicroServiceVerticle {
 
 
 	 @Override
-	  public void start() {
-		super.start();
+	  public void start() throws Exception{
 
 		if( VertxHolder.getVertx() == null ) VertxHolder.setVertx(vertx);
 		logger.info("Pub/Sub SockJs Server started on port {}", serverPort);
