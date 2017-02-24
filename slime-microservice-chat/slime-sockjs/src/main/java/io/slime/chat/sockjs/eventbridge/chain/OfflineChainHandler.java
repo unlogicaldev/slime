@@ -1,6 +1,7 @@
 package io.slime.chat.sockjs.eventbridge.chain;
 
 
+import io.slime.chat.common.redis.RedisSockjsClient;
 import io.slime.chat.common.util.VertxHolder;
 import io.slime.chat.common.util.WebSocketSessionHolder;
 import io.slime.chat.sockjs.eventbridge.EventBridgeChainException;
@@ -29,7 +30,7 @@ public class OfflineChainHandler implements EventBridgeChainHandler {
 			String userId = sockJSSocket.headers().get(WebSocketSessionHolder.USER_KEY);
 			
 			WebSocketSessionHolder.remove(userId);
-			
+
 			vertx.eventBus().publish(address,
 		            new JsonObject()
 		                .put("userId", userId));

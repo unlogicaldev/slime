@@ -8,3 +8,4 @@ io/slime/chat/sockjs/eventbridge/chain/OfflineChainHandler.class
 io/slime/chat/sockjs/eventbridge/EventBridgeChainResponse.class
 io/slime/chat/sockjs/PubSubSockJsServer.class
 io/slime/chat/sockjs/eventbridge/chain/LoginChainHandler.class
+io/slime/chat/sockjs/subscribe/MessageSubscribeVerticle.class

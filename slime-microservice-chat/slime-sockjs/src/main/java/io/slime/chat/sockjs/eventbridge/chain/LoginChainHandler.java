@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import io.slime.chat.common.redis.RedisSockjsClient;
 import io.slime.chat.common.spring.SpringConfiguration;
 import io.slime.chat.common.spring.service.RequestLogService;
 import io.slime.chat.common.util.VertxHolder;
@@ -66,6 +67,7 @@ public class LoginChainHandler implements EventBridgeChainHandler {
 					System.out.println(vertx);
 					System.out.println(vertx.eventBus());
 					System.out.println(userId);
+
 					// publish there is a new user coming
 					vertx.eventBus().publish("topic/chat/user",
 				         new JsonObject()

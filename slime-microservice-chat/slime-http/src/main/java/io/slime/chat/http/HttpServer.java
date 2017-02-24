@@ -19,10 +19,6 @@ public class HttpServer extends AbstractVerticle {
 	private int serverPort = 8080;
 	
 	private RequestLogService requestLogService = (RequestLogService) SpringConfiguration.getBean("requestLogService");
-	
-	public HttpServer() {
-		super();
-	}
 
 	@Override
 	public void start() throws Exception {

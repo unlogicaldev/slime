@@ -2,6 +2,7 @@ package io.slime.chat.sockjs.eventbridge.chain;
 
 import java.util.Map;
 
+import io.slime.chat.common.redis.RedisSockjsClient;
 import io.slime.chat.common.util.VertxHolder;
 import io.slime.chat.common.util.WebSocketSessionHolder;
 import io.slime.chat.sockjs.eventbridge.EventBridgeChainException;
@@ -26,7 +27,6 @@ public class ChatMessageChainHandler implements EventBridgeChainHandler {
 			String senderId = sockJSSocket.headers().get(WebSocketSessionHolder.USER_KEY);
 			String address = (String) rawMessage.get("address");
 			String msg = (String) rawMessage.get("body");
-			
 			
 			vertx.eventBus().publish(address,
 		            new JsonObject()

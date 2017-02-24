@@ -12,9 +12,6 @@ import io.vertx.core.VertxOptions;
 import io.vertx.core.json.DecodeException;
 import io.vertx.core.json.JsonObject;
 
-/**
- * @author <a href="http://escoffier.me">Clement Escoffier</a>
- */
 public class Launcher extends io.vertx.core.Launcher {
 
   public static void main(String[] args) {
@@ -25,8 +22,8 @@ public class Launcher extends io.vertx.core.Launcher {
   @Override
   public void beforeStartingVertx(VertxOptions options) {
 	new AnnotationConfigApplicationContext(SpringConfiguration.class);
-//    options.setClustered(true)
-//        .setClusterHost("127.0.0.1");
+    options.setClustered(true)
+        .setClusterHost("127.0.0.1");
   }
 
   @Override
@@ -39,6 +36,11 @@ public class Launcher extends io.vertx.core.Launcher {
 
     File conf = new File("src/conf/config.json");
     deploymentOptions.getConfig().mergeIn(getConfiguration(conf));
+
+    /**
+     * TODO CONNECT TO REDIS SERVER
+     */
+    
   }
 
   private JsonObject getConfiguration(File config) {
