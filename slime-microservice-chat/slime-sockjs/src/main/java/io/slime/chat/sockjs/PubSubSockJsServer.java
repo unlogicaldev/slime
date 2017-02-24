@@ -3,14 +3,12 @@ package io.slime.chat.sockjs;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
+import io.slime.chat.common.spring.SpringConfiguration;
 import io.slime.chat.common.util.VertxHolder;
 import io.slime.chat.sockjs.eventbridge.EventBridgeChain;
 import io.slime.chat.sockjs.eventbridge.EventBridgeChainResponse;
-import io.slime.chat.sockjs.spring.SpringConfiguration;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServer;
@@ -27,19 +25,7 @@ public class PubSubSockJsServer extends AbstractVerticle {
 
 	public static boolean isStart = false;
 	
-	private EventBridgeChain eventBridgeChain;
-
-	public PubSubSockJsServer() {
-		super();
-		if(!isStart){
-			isStart = true;
-			
-			@SuppressWarnings("resource")
-			ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
-			eventBridgeChain = context.getBean(EventBridgeChain.class);
-		}
-	}
-
+	private EventBridgeChain eventBridgeChain = (EventBridgeChain) SpringConfiguration.getBean(EventBridgeChain.class);
 
 	 @Override
 	  public void start() throws Exception{

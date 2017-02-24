@@ -1,5 +1,12 @@
-/Users/pgmnle/dev/workspace_vertx/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/Chain.java
-/Users/pgmnle/dev/workspace_vertx/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/util/VertxHolder.java
-/Users/pgmnle/dev/workspace_vertx/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/Launcher.java
-/Users/pgmnle/dev/workspace_vertx/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/util/WebSocketSessionHolder.java
-/Users/pgmnle/dev/workspace_vertx/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/MicroServiceVerticle.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/redis/JedisConnectionPool.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/Chain.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/spring/SpringConfiguration.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/util/VertxHolder.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/util/WebSocketSessionHolder.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/Launcher.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/redis/RedisKeyStore.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/spring/service/impl/RequestLogServiceImpl.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/redis/RedisDaemonClient.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/redis/AbstractRedisClient.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/MicroServiceVerticle.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-common/src/main/java/io/slime/chat/common/spring/service/RequestLogService.java

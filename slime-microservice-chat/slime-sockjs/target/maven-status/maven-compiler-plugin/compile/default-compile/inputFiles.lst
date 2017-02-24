@@ -1,6 +1,4 @@
-/Users/pgmnle/git/slime/slime-microservice-chat/slime-sockjs/src/main/java/io/slime/chat/sockjs/spring/service/RequestLogService.java
-/Users/pgmnle/git/slime/slime-microservice-chat/slime-sockjs/src/main/java/io/slime/chat/sockjs/spring/SpringConfiguration.java
-/Users/pgmnle/git/slime/slime-microservice-chat/slime-sockjs/src/main/java/io/slime/chat/sockjs/spring/service/impl/RequestLogServiceImpl.java
+/Users/pgmnle/git/slime/slime-microservice-chat/slime-sockjs/src/main/java/io/slime/chat/sockjs/spring/SpringConfigurationSockjs.java
 /Users/pgmnle/git/slime/slime-microservice-chat/slime-sockjs/src/main/java/io/slime/chat/sockjs/eventbridge/chain/OfflineChainHandler.java
 /Users/pgmnle/git/slime/slime-microservice-chat/slime-sockjs/src/main/java/io/slime/chat/sockjs/eventbridge/EventBridgeChainResponse.java
 /Users/pgmnle/git/slime/slime-microservice-chat/slime-sockjs/src/main/java/io/slime/chat/sockjs/eventbridge/EventBridgeChain.java

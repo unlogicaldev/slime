@@ -6,11 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import io.slime.chat.common.spring.SpringConfiguration;
+import io.slime.chat.common.spring.service.RequestLogService;
 import io.slime.chat.common.util.VertxHolder;
 import io.slime.chat.common.util.WebSocketSessionHolder;
 import io.slime.chat.sockjs.eventbridge.EventBridgeChainException;
 import io.slime.chat.sockjs.eventbridge.EventBridgeChainHandler;
-import io.slime.chat.sockjs.spring.service.RequestLogService;
 import io.vertx.core.Vertx;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.json.JsonObject;
@@ -22,7 +23,7 @@ public class LoginChainHandler implements EventBridgeChainHandler {
 	private static final Logger logger = LoggerFactory.getLogger(LoginChainHandler.class);
 	
 	@Autowired
-	private RequestLogService connectionLogService;
+	private RequestLogService requestLogService = (RequestLogService) SpringConfiguration.getBean("requestLogService");
 
 	@Override
 	public boolean handle(BridgeEvent event) throws EventBridgeChainException {
@@ -58,7 +59,7 @@ public class LoginChainHandler implements EventBridgeChainHandler {
 					}
 					
 					sockJSSocket.headers().set(WebSocketSessionHolder.USER_KEY, userId);
-					connectionLogService.logWebSocketConnection(sockJSSocket);
+					requestLogService.logWebSocketConnection(sockJSSocket);
 					
 					WebSocketSessionHolder.add(userId, sockJSSocket);
 

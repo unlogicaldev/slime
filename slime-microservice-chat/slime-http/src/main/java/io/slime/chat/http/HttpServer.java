@@ -4,34 +4,24 @@ import java.io.FileNotFoundException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import io.slime.chat.http.spring.SpringConfiguration;
-import io.slime.chat.http.spring.service.RequestLogService;
+import io.slime.chat.common.spring.SpringConfiguration;
+import io.slime.chat.common.spring.service.RequestLogService;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServerRequest;
 
-@Component
+@Service
 public class HttpServer extends AbstractVerticle {
 	private static final Logger logger = LoggerFactory.getLogger(HttpServer.class);
 	private int serverPort = 8080;
-	public static boolean isStart = false;
 	
-	private RequestLogService logService;
+	private RequestLogService requestLogService = (RequestLogService) SpringConfiguration.getBean("requestLogService");
 	
 	public HttpServer() {
 		super();
-		if(!isStart){
-			isStart = true;
-			@SuppressWarnings("resource")
-			ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
-			logService = context.getBean(RequestLogService.class);
-		}
 	}
 
 	@Override
@@ -43,7 +33,7 @@ public class HttpServer extends AbstractVerticle {
 
 			public void handle(HttpServerRequest req) {
 				
-				logService.print(String.format("Request on path: %s", req.path()));
+				requestLogService.print(String.format("Request on path: %s", req.path()));
 				
 				String file = req.path().equals("/") ? "/chat/index.html" : req.path();
 				

@@ -1,13 +1,16 @@
 package io.slime.chat.common;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import io.slime.chat.common.spring.SpringConfiguration;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.VertxOptions;
 import io.vertx.core.json.DecodeException;
 import io.vertx.core.json.JsonObject;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 /**
  * @author <a href="http://escoffier.me">Clement Escoffier</a>
@@ -18,10 +21,12 @@ public class Launcher extends io.vertx.core.Launcher {
     new Launcher().dispatch(args);
   }
 
+  @SuppressWarnings("resource")
   @Override
   public void beforeStartingVertx(VertxOptions options) {
-    options.setClustered(true)
-        .setClusterHost("127.0.0.1");
+	new AnnotationConfigApplicationContext(SpringConfiguration.class);
+//    options.setClustered(true)
+//        .setClusterHost("127.0.0.1");
   }
 
   @Override

@@ -1,7 +1,6 @@
 io/slime/chat/sockjs/eventbridge/EventBridgeChain.class
-io/slime/chat/sockjs/spring/SpringConfiguration.class
 io/slime/chat/sockjs/eventbridge/EventBridgeChainHandler.class
-io/slime/chat/sockjs/spring/service/RequestLogService.class
+io/slime/chat/sockjs/spring/SpringConfigurationSockjs.class
 io/slime/chat/sockjs/eventbridge/chain/ChatMessageChainHandler.class
 io/slime/chat/sockjs/eventbridge/EventBridgeChainException.class
 io/slime/chat/sockjs/PubSubSockJsServer$1.class
@@ -9,4 +8,3 @@ io/slime/chat/sockjs/eventbridge/chain/OfflineChainHandler.class
 io/slime/chat/sockjs/eventbridge/EventBridgeChainResponse.class
 io/slime/chat/sockjs/PubSubSockJsServer.class
 io/slime/chat/sockjs/eventbridge/chain/LoginChainHandler.class
-io/slime/chat/sockjs/spring/service/impl/RequestLogServiceImpl.class
