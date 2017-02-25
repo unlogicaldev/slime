@@ -90,6 +90,8 @@ public class PubSubSockJsServer extends AbstractVerticle {
 		 * subscribe published message
 		 */
 		vertx.deployVerticle(new MessageSubscribeVerticle(), new DeploymentOptions().setWorker(true).setMultiThreaded(true));
+		vertx.deployVerticle(new MessageSubscribeVerticle(), new DeploymentOptions().setWorker(true).setMultiThreaded(true));
+		vertx.deployVerticle(new MessageSubscribeVerticle(), new DeploymentOptions().setWorker(true).setMultiThreaded(true));
 
 	    HttpServer server = vertx.createHttpServer().requestHandler(router::accept);
 	    

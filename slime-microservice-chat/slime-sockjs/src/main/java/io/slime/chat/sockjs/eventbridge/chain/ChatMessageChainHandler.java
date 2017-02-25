@@ -28,10 +28,14 @@ public class ChatMessageChainHandler implements EventBridgeChainHandler {
 			String address = (String) rawMessage.get("address");
 			String msg = (String) rawMessage.get("body");
 			
-			vertx.eventBus().publish(address,
+			RedisSockjsClient.PUBLISH(address,
 		            new JsonObject()
 		                .put("message", msg)
 		                .put("sender", senderId));
+//			vertx.eventBus().publish(address,
+//		            new JsonObject()
+//		                .put("message", msg)
+//		                .put("sender", senderId));
 			
 			isHandle = Boolean.TRUE;
 			

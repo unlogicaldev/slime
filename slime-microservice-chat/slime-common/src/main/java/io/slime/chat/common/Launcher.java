@@ -2,10 +2,14 @@ package io.slime.chat.common;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.InetAddress;
 import java.util.Scanner;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import io.slime.chat.common.redis.RedisDaemonClient;
+import io.slime.chat.common.redis.RedisHttpClient;
+import io.slime.chat.common.redis.RedisSockjsClient;
 import io.slime.chat.common.spring.SpringConfiguration;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.VertxOptions;
@@ -22,8 +26,8 @@ public class Launcher extends io.vertx.core.Launcher {
   @Override
   public void beforeStartingVertx(VertxOptions options) {
 	new AnnotationConfigApplicationContext(SpringConfiguration.class);
-    options.setClustered(true)
-        .setClusterHost("127.0.0.1");
+//    options.setClustered(true)
+//        .setClusterHost("127.0.0.1");
   }
 
   @Override
@@ -36,10 +40,38 @@ public class Launcher extends io.vertx.core.Launcher {
 
     File conf = new File("src/conf/config.json");
     deploymentOptions.getConfig().mergeIn(getConfiguration(conf));
-
-    /**
-     * TODO CONNECT TO REDIS SERVER
-     */
+    
+    File conf_properties = new File("src/conf/config_properties.json");
+    JsonObject properties = getConfiguration(conf_properties);
+    if(properties.containsKey("type")){
+    	switch(properties.getString("type")){
+	    	case "sockjs":
+				try {
+					InetAddress Address = InetAddress.getLocalHost();
+					new RedisSockjsClient("localhost", 6379, Address.getHostAddress()+":"+properties.getInteger("port"));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+	    		break;
+	    	case "http":
+				try {
+					InetAddress Address = InetAddress.getLocalHost();
+					new RedisHttpClient("localhost", 6379, Address.getHostAddress()+":"+properties.getInteger("port"));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+	    		break;
+	    	case "daemon":
+				try {
+					InetAddress Address = InetAddress.getLocalHost();
+					new RedisDaemonClient("localhost", 6379, Address.getHostAddress()+":"+RedisDaemonClient.getPID());
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+		    	break;
+    	}
+    	
+    }
     
   }
 

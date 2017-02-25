@@ -31,9 +31,13 @@ public class OfflineChainHandler implements EventBridgeChainHandler {
 			
 			WebSocketSessionHolder.remove(userId);
 
-			vertx.eventBus().publish(address,
+			RedisSockjsClient.PUBLISH(address,
 		            new JsonObject()
-		                .put("userId", userId));
+	                .put("userId", userId));
+					
+//			vertx.eventBus().publish(address,
+//		            new JsonObject()
+//		                .put("userId", userId));
 			
 		}
 		

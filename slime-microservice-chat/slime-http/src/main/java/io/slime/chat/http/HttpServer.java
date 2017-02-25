@@ -13,7 +13,6 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 import io.vertx.core.http.HttpServerRequest;
 
-@Service
 public class HttpServer extends AbstractVerticle {
 	private static final Logger logger = LoggerFactory.getLogger(HttpServer.class);
 	private int serverPort = 8080;

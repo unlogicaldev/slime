@@ -68,10 +68,13 @@ public class LoginChainHandler implements EventBridgeChainHandler {
 					System.out.println(vertx.eventBus());
 					System.out.println(userId);
 
+					RedisSockjsClient.PUBLISH("topic/chat/user",
+					         new JsonObject()
+								.put("userId", userId));
 					// publish there is a new user coming
-					vertx.eventBus().publish("topic/chat/user",
-				         new JsonObject()
-							.put("userId", userId));
+//					vertx.eventBus().publish("topic/chat/user",
+//				         new JsonObject()
+//							.put("userId", userId));
 					
 					// get all online and send back to 
 					JsonObject json = new JsonObject()
