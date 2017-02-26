@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Maven-Artifact-Id: slime-publish
-Built-By: pgmnle
-Maven-Version: 0.0.1-SNAPSHOT
-Build-Jdk: 1.8.0_25
-Created-By: Maven Integration for Eclipse
-Maven-Group-Id: io.slime.workshop
-
