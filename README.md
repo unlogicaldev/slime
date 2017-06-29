@@ -4,7 +4,7 @@
 
  * Vert.x
  * Chat Microservices
- * Message Queue
+ * Message Queue ( Redis Queue )
  * 10,000 peoples in same chat room.
  * Distributed message server
  
