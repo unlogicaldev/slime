@@ -25,7 +25,7 @@ To build the code:
     mvn clean package
     java -jar target/slime-sockjs-0.0.1-SNAPSHOT-fat.jar 
     
-    == REDIS MQ 사용 == 
+    == REDIS MQ : Routing Message == 
     cd slime-publish
     mvn clean package
     java -jar target/slime-publish-0.0.1-SNAPSHOT-fat.jar 
